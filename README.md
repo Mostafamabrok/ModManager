@@ -1,2 +1,2 @@
 # ModManager
-This application helps users sort their mods for videogames.
+This application helps users sort their mods for videogames (Minecraft in particular).
