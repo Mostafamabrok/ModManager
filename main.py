@@ -1,6 +1,11 @@
+import os
 import pickle
 
 def Introduction():
+
+    if os.path.exists("pickles") == False:
+        os.mkdir("pickles")
+
     print("ModManager v0.0.1, Developed By MSTF Studios\n")
     print ("Chose an action from the prompts by typing a number and pressing enter.")
     print("1-Create a new modset")
@@ -35,7 +40,7 @@ def mod_folder_config():
 
     if permission == "y":
         modfolder = input("Input the full path to your mod folder: ")
-        with open("modfolder.pickle", "wb") as f: pickle.dump(modfolder, f) 
+        with open("pickles/modfolder.pickle", "wb") as f: pickle.dump(modfolder, f) 
 
         
     
