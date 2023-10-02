@@ -25,8 +25,7 @@ def use_modset():
     pass
 
 def view_modsets():
-    with open("modfolder.pickle", "rb") as f: print(pickle.load(f))
-    #pass
+    pass
 
 def delete_modset():
     pass
