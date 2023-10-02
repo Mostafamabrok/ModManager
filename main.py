@@ -1,13 +1,18 @@
 import os
+import shutil
 import pickle
 
 def Introduction():
 
-    if os.path.exists("pickles") == False:
-        os.mkdir("pickles")
+    if os.path.exists("pickles") == False: os.mkdir("pickles")
+
+    if os.path.exists("pickles/modfolder.pickle"):
+        with open('pickles/modfolder.pickle', 'rb') as f:
+            global modfolder
+            modfolder = pickle.load(f) 
 
     print("ModManager v0.0.1, Developed By MSTF Studios\n")
-    print ("Chose an action from the prompts by typing a number and pressing enter.")
+    print("Chose an action from the prompts by typing a number and pressing enter.")
     print("1-Create a new modset")
     print("2-Use a saved modset")
     print("3-View saved modsets")
@@ -24,7 +29,19 @@ def Introduction():
 
 
 def save_modset():
-    pass
+
+    if os.path.exists("modsets") == False: os.mkdir("modsets")
+    else: os.chdir("modsets")
+
+    modset_name = input("What would you like this modset to be called? (Type desired name and press enter): ")
+    os.chdir("modsets/")
+    os.mkdir(modset_name)
+    premodlist = os.listdir(modfolder)
+
+    for mod in premodlist:
+        modpath = (os.path.join(modfolder, mod))
+        shutil.copy(modpath, modset_name)
+
 
 def use_modset():
     pass
@@ -42,7 +59,5 @@ def mod_folder_config():
         modfolder = input("Input the full path to your mod folder: ")
         with open("pickles/modfolder.pickle", "wb") as f: pickle.dump(modfolder, f) 
 
-        
-    
-
+            
 Introduction()
