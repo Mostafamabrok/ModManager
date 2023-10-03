@@ -33,13 +33,13 @@ def Introduction(): #Starts and runs the program.
 
 
 def save_modset(): #Creates a new modset from current mods folder and copies all the mods to a local folder
+ if input("This will copy all mods in your mods folder to saved directory, do you want to proceed? (y/n): ") == "y":
 
     if os.path.exists("modsets") == False: os.mkdir("modsets")
     else: os.chdir("modsets")
 
     modset_name = input("What would you like this modset to be called? (Type desired name and press enter): ")
 
-    os.chdir("modsets/")
     os.mkdir(modset_name)
     premodlist = os.listdir(modfolder)
 
