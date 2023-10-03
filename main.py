@@ -1,8 +1,12 @@
 import os
 import shutil
 import pickle
+import glob
 
 def Introduction(): #Starts and runs the program.
+
+    global permadir
+    permadir=os.getcwd()
 
     #Make pickles directory to store pickle files. WILL BE REMOVED LATER WHEN INSTALLER IS MADE
     if os.path.exists("pickles") == False: os.mkdir("pickles")
@@ -49,7 +53,21 @@ def save_modset(): #Creates a new modset from current mods folder and copies all
 
 
 def use_modset():
-    pass
+    if input("This will DELETE ALL MODS CURRENTLY BEING USED and replace them with a modset, do you want to proceed? (y/n): ") == "y":
+        #Deletes all mods in use.
+        os.chdir(modfolder)
+        for mod in os.listdir():
+            os.chmod(mod, 0o777) 
+            os.remove(mod)
+
+        modset_tobe_used = input("What is the exact name of the modset you want to use? (Enter exact name): ")
+
+        #Copies the modset to the mod folder.
+        os.chdir(os.path.join(permadir ,"modsets"))
+        shutil.copytree(os.path.join(permadir ,"modsets", modset_tobe_used), modfolder, dirs_exist_ok=True)
+
+        print("Modset Used.")
+
 
 def view_modsets():
     pass
