@@ -76,7 +76,7 @@ def delete_modset():
     pass
 
 def mod_folder_config(): #Changes or sets mod directory
-    check_if_sure = input("Do you want to chnage or set a mod folder? (y/n): ")
+    check_if_sure = input("Do you want to change or set a mod folder? (y/n): ")
 
     if check_if_sure == "y":
         modfolder = input("Input the full path to your mod folder: ")
