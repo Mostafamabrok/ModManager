@@ -82,7 +82,7 @@ def delete_modset():
     view_modsets()
 
     modset_tobe_deleted = input("What modset would you like to delete? (Enter exact name): ")
-    shutil.rmtree(modset_tobe_deleted)
+    shutil.rmtree(os.path.join("modsets",modset_tobe_deleted))
 
 def mod_folder_config(): #Changes or sets mod directory
     check_if_sure = input("Do you want to change or set a mod folder? (y/n): ")
