@@ -1,7 +1,6 @@
 import os
 import shutil
 import pickle
-import glob
 
 def Introduction(): #Starts and runs the program.
 
