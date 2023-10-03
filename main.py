@@ -60,10 +60,7 @@ def use_modset():
             os.chmod(mod, 0o777) 
             os.remove(mod)
 
-        os.chdir(permadir)
-        print("\nCurrent Saved Modsets: ")
-        for modset in os.listdir("modsets"): print("-" + modset)
-        print("")
+        view_modsets()
 
         modset_tobe_used = input("What is the exact name of the modset you want to use? (Enter exact name): ")
 
@@ -81,7 +78,11 @@ def view_modsets():
     print("")
 
 def delete_modset():
-    pass
+    
+    view_modsets()
+
+    modset_tobe_deleted = input("What modset would you like to delete? (Enter exact name): ")
+    shutil.rmtree(modset_tobe_deleted)
 
 def mod_folder_config(): #Changes or sets mod directory
     check_if_sure = input("Do you want to change or set a mod folder? (y/n): ")
