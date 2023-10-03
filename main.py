@@ -75,7 +75,10 @@ def use_modset():
 
 
 def view_modsets():
-    pass
+    os.chdir(permadir)
+    print("\nCurrent Saved Modsets: ")
+    for modset in os.listdir("modsets"): print("-" + modset)
+    print("")
 
 def delete_modset():
     pass
