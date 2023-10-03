@@ -26,6 +26,7 @@ def Introduction(): #Starts and runs the program.
     print("3-View saved modsets")
     print("4-Delete a saved modset")
     print("5-Change or set mods folder")
+    print("6-Exit ")
 
     desired_function = input (": ")
 
@@ -35,6 +36,9 @@ def Introduction(): #Starts and runs the program.
     if desired_function == "3": view_modsets()
     if desired_function == "4": delete_modset()
     if desired_function == "5": mod_folder_config()
+    if desired_function == "6": exit()
+
+    Introduction #Loops the function
 
 
 def save_modset(): #Creates a new modset from current mods folder and copies all the mods to a local folder
