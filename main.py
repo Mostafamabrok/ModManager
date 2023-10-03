@@ -85,6 +85,11 @@ def view_modsets():
     print("")
 
 def check_modset():
+    
+    view_modsets()
+
+    modset_tobe_checked = input("What modset would you like to check? (Enter Exact Name): ")
+
     pass
 
 def delete_modset():
