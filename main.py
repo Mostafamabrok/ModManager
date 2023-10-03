@@ -60,6 +60,11 @@ def use_modset():
             os.chmod(mod, 0o777) 
             os.remove(mod)
 
+        os.chdir(permadir)
+        print("\nCurrent Saved Modsets: ")
+        for modset in os.listdir("modsets"): print("-" + modset)
+        print("")
+
         modset_tobe_used = input("What is the exact name of the modset you want to use? (Enter exact name): ")
 
         #Copies the modset to the mod folder.
