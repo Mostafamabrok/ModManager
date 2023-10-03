@@ -2,10 +2,11 @@ import os
 import shutil
 import pickle
 
+global permadir 
+permadir=os.getcwd()
+
 def Introduction(): #Starts and runs the program.
 
-    global permadir
-    permadir=os.getcwd()
     os.chdir(permadir)
 
     #Make pickles directory to store pickle files. WILL BE REMOVED LATER WHEN INSTALLER IS MADE
