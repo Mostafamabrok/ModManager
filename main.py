@@ -24,9 +24,10 @@ def Introduction(): #Starts and runs the program.
     print("1-Create a new modset")
     print("2-Use a saved modset")
     print("3-View saved modsets")
-    print("4-Delete a saved modset")
-    print("5-Change or set mods folder")
-    print("6-Exit ")
+    print("4-Check the contents of a modset")
+    print("5-Delete a saved modset")
+    print("6-Change or set mods folder")
+    print("7-Exit ")
 
     desired_function = input (": ")
 
@@ -34,9 +35,10 @@ def Introduction(): #Starts and runs the program.
     if desired_function == "1": save_modset()
     if desired_function == "2": use_modset()
     if desired_function == "3": view_modsets()
-    if desired_function == "4": delete_modset()
-    if desired_function == "5": mod_folder_config()
-    if desired_function == "6": exit()
+    if desired_function == "4": check_modset()
+    if desired_function == "5": delete_modset()
+    if desired_function == "6": mod_folder_config()
+    if desired_function == "7": exit()
 
     Introduction #Loops the function
 
@@ -81,6 +83,9 @@ def view_modsets():
     print("\nCurrent Saved Modsets: ")
     for modset in os.listdir("modsets"): print("-" + modset)
     print("")
+
+def check_modset():
+    pass
 
 def delete_modset():
     
