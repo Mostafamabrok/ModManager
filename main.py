@@ -100,10 +100,10 @@ def delete_modset():
     shutil.rmtree(os.path.join("modsets",modset_tobe_deleted))
 
 def mod_folder_config(): #Changes or sets mod directory
-    check_if_sure = input("Do you want to change or set a mod folder? (y/n): ")
+    check_if_sure = input("Do you want to change or set a mod directory? (y/n): ")
 
     if check_if_sure == "y":
-        modfolder = input("Input the full path to your mod folder: ")
+        modfolder = input("Input the full path to your mod directory: ")
         with open("pickles/modfolder.pickle", "wb") as f: pickle.dump(modfolder, f) 
 
             
