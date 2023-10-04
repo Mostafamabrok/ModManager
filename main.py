@@ -89,8 +89,10 @@ def check_modset():
     view_modsets()
 
     modset_tobe_checked = input("What modset would you like to check? (Enter Exact Name): ")
-
-    pass
+    os.chdir(os.path.join(permadir, "modsets"))
+    print("Mods in modset("+modset_tobe_checked+"): ")
+    for mod in os.listdir(modset_tobe_checked): print("-"+mod)
+    print("")
 
 def delete_modset():
     
