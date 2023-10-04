@@ -2,8 +2,7 @@ import os
 import shutil
 import pickle
 
-global permadir 
-permadir=os.getcwd()
+global permadir ; permadir=os.getcwd()
 
 def Introduction(): #Starts and runs the program.
 
