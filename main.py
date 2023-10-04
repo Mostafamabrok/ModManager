@@ -26,7 +26,7 @@ def Introduction(): #Starts and runs the program.
     print("3-View saved modsets")
     print("4-Check the contents of a modset")
     print("5-Delete a saved modset")
-    print("6-Change or set mods folder")
+    print("6-Change or set mods directory")
     print("7-Exit ")
 
     desired_function = input (": ")
