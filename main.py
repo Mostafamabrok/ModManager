@@ -2,6 +2,8 @@ import os
 import shutil
 import pickle
 
+version="v0.0.1"
+
 def data_check():
     if os.path.isfile("MM_data_dict") == False:
         data_setup(False)
@@ -10,6 +12,7 @@ def data_check():
 def data_setup(data_ready):
 
     if data_ready == False:
+        print("Starting ModManger"+version+" Config")
         modsets_directory=input("Where do you want to store ModManager Modsets? Make sure to enter a full path. (or enter 'n' to store it where this script is located, this is reccomended):")
         mc_mods_folder=input("What is the path to your mods folder? (eg. C:/Users/me/AppData/Roaming/.minecraft/mods) (Make sure to enter the entire path!)")
 
