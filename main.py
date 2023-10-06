@@ -32,7 +32,13 @@ def data_setup(data_ready):
 
 
 def initialize():
-    pass
+    with open("MM_data_dict", "rb") as i: MM_data_dict = pickle.load(i)
+
+    global modsets_directory
+    global mc_mods_folder
+
+    modsets_directory = MM_data_dict['modsets_directory']
+    mc_mods_folder = MM_data_dict['mc_mods_folder']
 
 def start():
     pass
