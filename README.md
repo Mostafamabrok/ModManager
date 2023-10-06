@@ -6,7 +6,7 @@ This application helps users sort their mods for videogames (Minecraft in partic
 
 * You must have python Installed
 
-### How to use
+### How to use (Subject to Change)
 
 * Download main.py from the main branch.
 * Move main.py to a location that is not likely to change.
