@@ -1,6 +1,6 @@
 # ModManager
 
-This application helps users sort their mods for videogames (Minecraft in particular).
+This application helps users sort their Minecraft Mods (May expand to other games in the future).
 
 ### Prerequisites (Subject to Change)
 
