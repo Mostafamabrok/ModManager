@@ -56,7 +56,7 @@ def start():
 
     #Checks what the user wants to do and then executes the respective function.
     if desired_function == "1": save_modset(input("Save New Modset as:"), modsets_directory, mc_mods_folder)
-    if desired_function == "2": use_modset()
+    if desired_function == "2": use_modset(input("What is the name of the modset you want to use? (Enter Name): "), modsets_directory, mc_mods_folder)
     if desired_function == "3": view_modsets()
     if desired_function == "4": check_modset()
     if desired_function == "5": delete_modset()
@@ -80,7 +80,13 @@ def save_modset(modset_name, modsets_directory, mc_mods_folder):
 
 
 def use_modset(modset_name, modsets_directory, mc_mods_folder):
-    pass
+
+    for mod in os.listdir(os.path.join(modsets_directory, modset_name)):
+
+        mod = os.path.join(modsets_directory, modset_name, mod)
+        shutil.copy(mod, mc_mods_folder)
+        print("Modset Used.\n")
+
 
 def delete_modset(modset_name, modsets,_directory):
     pass
