@@ -59,7 +59,7 @@ def start():
     if desired_function == "2": use_modset(input("What is the name of the modset you want to use? (Enter Name): "), modsets_directory, mc_mods_folder)
     if desired_function == "3": view_modsets()
     if desired_function == "4": check_modset()
-    if desired_function == "5": delete_modset()
+    if desired_function == "5": delete_modset(input("What modset would you like to delete?"), modsets_directory)
     if desired_function == "6": data_setup(False)
     if desired_function == "7": exit()
 
@@ -88,8 +88,9 @@ def use_modset(modset_name, modsets_directory, mc_mods_folder):
         print("Modset Used.\n")
 
 
-def delete_modset(modset_name, modsets,_directory):
-    pass
+def delete_modset(modset_name, modsets_directory):
+    shutil.rmtree(os.path.join(modsets_directory, modset_name))
+    print("Modset Deleted\n")
 
 def view_modsets():
     pass
