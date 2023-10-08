@@ -40,7 +40,7 @@ def initialize():
     modsets_directory = MM_data_dict['modsets_directory']
     mc_mods_folder = MM_data_dict['mc_mods_folder']
 
-def start():
+def terminal_intro():
 
     print("ModManager v0.0.1, Developed By MSTF Studios\n")
     print("Chose an action from the prompts by typing a number and pressing enter.")
@@ -63,7 +63,7 @@ def start():
     if desired_function == "6": data_setup(False)
     if desired_function == "7": exit()
 
-    start()
+terminal_intro()
 
 
 def save_modset(modset_name, modsets_directory, mc_mods_folder):
@@ -107,5 +107,5 @@ def check_modset(modset_name, modsets_directory):
 
 
 data_check()
-initialize()
-start()
+initialize() 
+terminal_intro()
