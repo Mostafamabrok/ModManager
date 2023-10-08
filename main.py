@@ -63,7 +63,7 @@ def terminal_intro():
     if desired_function == "6": data_setup(False)
     if desired_function == "7": exit()
 
-terminal_intro()
+    terminal_intro()
 
 
 def save_modset(modset_name, modsets_directory, mc_mods_folder):
