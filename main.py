@@ -67,16 +67,21 @@ def start():
 
 
 def save_modset(modset_name, modsets_directory, mc_mods_folder):
+
+    try:  
+        os.mkdir(os.path.join(modsets_directory, modset_name))
+        print("Modset folder created.")
+
+        for mod in os.listdir(mc_mods_folder):
+            mod = os.path.join(mc_mods_folder, mod)
+            shutil.copy(mod, os.path.join(modsets_directory, modset_name))
+            print("Copied mod from:"+str(mod))
+
+        print("Modset Saved.")
+
+    except FileNotFoundError:
+        print("\nERROR: Your saved Mod directory is invalid, please reconfigure it.\n")
     
-    os.mkdir(os.path.join(modsets_directory, modset_name))
-    print("Modset folder created.")
-
-    for mod in os.listdir(mc_mods_folder):
-        mod = os.path.join(mc_mods_folder, mod)
-        shutil.copy(mod, os.path.join(modsets_directory, modset_name))
-        print("Copied mod from:"+str(mod))
-
-    print("Modset Saved.")
 
 
 def use_modset(modset_name, modsets_directory, mc_mods_folder):
