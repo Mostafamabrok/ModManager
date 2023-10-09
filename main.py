@@ -13,7 +13,7 @@ def data_setup(data_ready):
 
     if data_ready == False:
         print("Starting ModManger"+version+" Config")
-        modsets_directory=input("Where do you want to keep your Modsets? ENTER FULL PATH (enter 'n' to store it in the cwd, (reccomended)):")
+        modsets_directory=input("Where will your Modsets be kept? ENTER FULL PATH (enter 'n' to store it in the cwd, (reccomended)):")
         mc_mods_folder=input("What is the path to your mods folder? (eg. C:/Users/me/AppData/Roaming/.minecraft/mods) (Make sure to enter the entire path!)")
 
         if modsets_directory == "n": 
