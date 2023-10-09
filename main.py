@@ -1,6 +1,7 @@
 import os
 import shutil
 import pickle
+import tkinter
 
 version="v0.0.1"
 
@@ -31,7 +32,7 @@ def data_setup(data_ready):
         with open("MM_data_dict", "wb") as i: pickle.dump(MM_data_dict, i)
 
 
-def initialize():
+def initialize_data():
     with open("MM_data_dict", "rb") as i: MM_data_dict = pickle.load(i)
 
     global modsets_directory
@@ -107,5 +108,5 @@ def check_modset(modset_name, modsets_directory):
 
 
 data_check()
-initialize() 
+initialize_data() 
 terminal_intro()
