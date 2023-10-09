@@ -43,7 +43,7 @@ def initialize():
 def terminal_intro():
 
     print("ModManager v0.0.1, Developed By MSTF Studios\n")
-    print("Chose an action from the prompts by typing a number and pressing enter.")
+    print("Chose an action from the prompts by typing its number and pressing enter.")
     print("1-Create a new modset")
     print("2-Use a saved modset")
     print("3-View saved modsets")
