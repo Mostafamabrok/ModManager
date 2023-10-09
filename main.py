@@ -13,7 +13,7 @@ def data_setup(data_ready):
 
     if data_ready == False:
         print("Starting ModManger"+version+" Config")
-        modsets_directory=input("Where do you want to store ModManager Modsets? Make sure to enter a full path. (or enter 'n' to store it where this script is located, this is reccomended):")
+        modsets_directory=input("Where do you want to keep your Modsets? ENTER FULL PATH (enter 'n' to store it in the cwd, (reccomended)):")
         mc_mods_folder=input("What is the path to your mods folder? (eg. C:/Users/me/AppData/Roaming/.minecraft/mods) (Make sure to enter the entire path!)")
 
         if modsets_directory == "n": 
@@ -43,7 +43,7 @@ def initialize():
 def terminal_intro():
 
     print("ModManager v0.0.1, Developed By MSTF Studios\n")
-    print("Chose an action from the prompts by typing a number and pressing enter.")
+    print("Chose an action from the prompts by typing its number and pressing enter.")
     print("1-Create a new modset")
     print("2-Use a saved modset")
     print("3-View saved modsets")
