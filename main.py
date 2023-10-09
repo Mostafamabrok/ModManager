@@ -1,7 +1,7 @@
 import os
 import shutil
 import pickle
-import tkinter
+import tkinter as tk
 
 version="v0.0.1"
 
@@ -40,6 +40,25 @@ def initialize_data():
 
     modsets_directory = MM_data_dict['modsets_directory']
     mc_mods_folder = MM_data_dict['mc_mods_folder']
+
+
+def initialize_window():
+
+    global window
+    window = tk.Tk()
+
+    create_modset_label = tk.Label(text="Modset name?")
+    create_modset_label.pack()
+
+    save_modset_name_entry = tk.Entry()
+    save_modset_name_entry.pack()
+
+    def save_modset_local(): 
+        save_modset(save_modset_name_entry.get(), modsets_directory, mc_mods_folder)
+
+    save_modset_button = tk.Button(text="Save Modset:", command=save_modset_local)
+    save_modset_button.pack()
+
 
 def terminal_intro():
 
@@ -109,4 +128,7 @@ def check_modset(modset_name, modsets_directory):
 
 data_check()
 initialize_data() 
-terminal_intro()
+initialize_window()
+
+
+window.mainloop()
