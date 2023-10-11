@@ -136,8 +136,12 @@ def use_modset(modset_name, modsets_directory, mc_mods_folder):
 
 
 def delete_modset(modset_name, modsets_directory):
-    shutil.rmtree(os.path.join(modsets_directory, modset_name))
-    print("Modset Deleted\n")
+    if modset_name == "":
+        print("You must use a proper modset directory.")
+
+    else:
+        shutil.rmtree(os.path.join(modsets_directory, modset_name))
+        print("Modset Deleted\n")
 
 
 def view_modsets():
