@@ -25,8 +25,6 @@ def data_setup(data_ready):
             except FileExistsError: 
                 pass
 
-        if not terminal_or_gui == "g" and not terminal_or_gui == "t":
-            terminal_or_gui = "t"
 
         MM_data_dict= {
             'modsets_directory' : modsets_directory,
@@ -175,3 +173,9 @@ initialize_data()
 if terminal_or_gui == "g":
     initialize_window()
     window.mainloop()
+
+elif terminal_or_gui == "t":
+    terminal_intro()
+
+else:
+    next = input("DELETE MM_DATA_DICT FROM LOCAL FOLDER AND RERUN PROGRAM. MAKE SURE TO SELECT g or t WHEN ASKED. PRESS ENTER TO CONTINUE:")
