@@ -14,8 +14,9 @@ def data_setup(data_ready):
 
     if data_ready == False:
         print("Starting ModManger"+version+" Config")
-        modsets_directory=input("Where will your Modsets be kept? ENTER FULL PATH (enter 'n' to store it in the cwd, (reccomended)):")
-        mc_mods_folder=input("What is the path to your mods folder? (eg. C:/Users/me/AppData/Roaming/.minecraft/mods) (Make sure to enter the entire path!)")
+        modsets_directory = input("Where will your Modsets be kept? ENTER FULL PATH (enter 'n' to store it in the cwd, (reccomended)):")
+        mc_mods_folder = input("What is the path to your mods folder? (eg. C:/Users/me/AppData/Roaming/.minecraft/mods) (Make sure to enter the entire path!)")
+        terminal_or_gui = input("Would you like to use terminal interface or gui? (t/g):")
 
         if modsets_directory == "n": 
             modsets_directory = "MM_Data"
@@ -24,9 +25,13 @@ def data_setup(data_ready):
             except FileExistsError: 
                 pass
 
+        if not terminal_or_gui == "g" and not terminal_or_gui == "t":
+            terminal_or_gui = "t"
+
         MM_data_dict= {
             'modsets_directory' : modsets_directory,
-            'mc_mods_folder': mc_mods_folder
+            'terminal_or_gui' : terminal_or_gui,
+            'mc_mods_folder': mc_mods_folder,
         }
 
         with open("MM_data_dict", "wb") as i: pickle.dump(MM_data_dict, i)
@@ -37,8 +42,10 @@ def initialize_data():
 
     global modsets_directory
     global mc_mods_folder
+    global terminal_or_gui
 
     modsets_directory = MM_data_dict['modsets_directory']
+    terminal_or_gui = MM_data_dict['terminal_or_gui']
     mc_mods_folder = MM_data_dict['mc_mods_folder']
 
 
@@ -128,11 +135,21 @@ def save_modset(modset_name, modsets_directory, mc_mods_folder):
 
 def use_modset(modset_name, modsets_directory, mc_mods_folder):
 
+    true_cwd = os.getcwd() #Change back to once all mods in mc_mods_folder are removed.
+
+    os.chdir(mc_mods_folder)
+
+    for mod in os.listdir():
+        os.remove(mod)
+
+    os.chdir(true_cwd)
+
     for mod in os.listdir(os.path.join(modsets_directory, modset_name)):
 
         mod = os.path.join(modsets_directory, modset_name, mod)
         shutil.copy(mod, mc_mods_folder)
-        print("Modset Used.\n")
+
+    print("Modset Used.\n")
 
 
 def delete_modset(modset_name, modsets_directory):
@@ -153,7 +170,8 @@ def check_modset(modset_name, modsets_directory):
 
 
 data_check()
-initialize_data() 
-initialize_window()
+initialize_data()
 
-window.mainloop()
+if terminal_or_gui == "g":
+    initialize_window()
+    window.mainloop()
