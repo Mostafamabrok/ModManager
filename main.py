@@ -47,28 +47,39 @@ def initialize_window():
     global window
     window = tk.Tk()
 
-    create_modset_label = tk.Label(text="Enter modset name in box below and click button save it:")
-    create_modset_label.pack()
-
-    save_modset_name_entry = tk.Entry()
-    save_modset_name_entry.pack()
-
-    def save_modset_local(): 
+    #Functions are re-defined because command= param in tk.button doesn't work properly.
+    def save_modset_local():
         save_modset(save_modset_name_entry.get(), modsets_directory, mc_mods_folder)
-
-    save_modset_button = tk.Button(text="Save Modset:", command=save_modset_local)
-    save_modset_button.pack()
-
-    use_modset_label = tk.Label(text="Enter the name of the modset you would like to use in the box below:")
-    use_modset_label.pack()
-    use_modset_name_entry = tk.Entry()
-    use_modset_name_entry.pack()
 
     def use_modset_local(): 
         use_modset(use_modset_name_entry.get(), modsets_directory, mc_mods_folder)
 
+    def delete_modset_local():
+        delete_modset(delete_modset_name_entry.get(), modsets_directory)
+
+    create_modset_label = tk.Label(text="Enter the name of a modset you would like to save in box below and click button save it:")
+    save_modset_name_entry = tk.Entry()
+    save_modset_button = tk.Button(text="Save Modset:", command=save_modset_local)
+
+    use_modset_label = tk.Label(text="Enter the name of a modset you would like to use in the box below:")
+    use_modset_name_entry = tk.Entry()
     use_modset_button = tk.Button(text="Use Modset:", command=use_modset_local)
+
+    delete_modset_label = tk.Label(text="Enter the name of a modset you would like to delete in the box below:")
+    delete_modset_name_entry = tk.Entry()
+    delete_modset_button = tk.Button(text="Delete Modset:")
+
+    create_modset_label.pack()
+    save_modset_name_entry.pack()
+    save_modset_button.pack()
+
+    use_modset_label.pack()
+    use_modset_name_entry.pack()
     use_modset_button.pack()
+
+    delete_modset_label.pack()
+    delete_modset_name_entry.pack()
+    delete_modset_button.pack()
 
 
 def terminal_intro():
@@ -140,6 +151,5 @@ def check_modset(modset_name, modsets_directory):
 data_check()
 initialize_data() 
 initialize_window()
-
 
 window.mainloop()
