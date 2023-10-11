@@ -47,7 +47,7 @@ def initialize_window():
     global window
     window = tk.Tk()
 
-    create_modset_label = tk.Label(text="Modset name?")
+    create_modset_label = tk.Label(text="Enter modset name in box below and click button save it:")
     create_modset_label.pack()
 
     save_modset_name_entry = tk.Entry()
@@ -58,6 +58,17 @@ def initialize_window():
 
     save_modset_button = tk.Button(text="Save Modset:", command=save_modset_local)
     save_modset_button.pack()
+
+    use_modset_label = tk.Label(text="Enter the name of the modset you would like to use in the box below:")
+    use_modset_label.pack()
+    use_modset_name_entry = tk.Entry()
+    use_modset_name_entry.pack()
+
+    def use_modset_local(): 
+        use_modset(use_modset_name_entry.get(), modsets_directory, mc_mods_folder)
+
+    use_modset_button = tk.Button(text="Use Modset:", command=use_modset_local)
+    use_modset_button.pack()
 
 
 def terminal_intro():
