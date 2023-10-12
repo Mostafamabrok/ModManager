@@ -52,7 +52,6 @@ def initialize_window():
     global window
     window = tk.Tk()
     window.title("ModManager " + version)
-    window.iconbitmap("top_left_icon.ico")
     window.resizable(False, False)
 
     #Functions are re-defined because command= param in tk.button doesn't work properly.
