@@ -64,6 +64,10 @@ def initialize_window():
     def delete_modset_local():
         delete_modset(delete_modset_name_entry.get(), modsets_directory)
 
+    def switch_to_terminal():
+        MM_data_dict['terminal_or_gui'] = 't'
+        with open("MM_data_dict", "wb") as i: pickle.dump(MM_data_dict, i)
+
     save_modset_label = tk.Label(text="Enter the name of a modset you would like to save in box below and click button save it:")
     save_modset_name_entry = tk.Entry()
     save_modset_button = tk.Button(text="Save Modset:", command=save_modset_local)
@@ -75,6 +79,8 @@ def initialize_window():
     delete_modset_label = tk.Label(text="Enter the name of a modset you would like to delete in the box below:")
     delete_modset_name_entry = tk.Entry()
     delete_modset_button = tk.Button(text="Delete Modset:", command=delete_modset_local)
+
+	switch_to_terminal_button = tk.Button(text="Press to switch to terminal")
 
     save_modset_label.pack()
     save_modset_name_entry.pack()
