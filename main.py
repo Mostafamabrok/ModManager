@@ -36,11 +36,13 @@ def data_setup(data_ready):
 
 
 def initialize_data():
-    with open("MM_data_dict", "rb") as i: MM_data_dict = pickle.load(i)
 
+    global MM_data_dict
     global modsets_directory
     global mc_mods_folder
     global terminal_or_gui
+
+    with open("MM_data_dict", "rb") as i: MM_data_dict = pickle.load(i)
 
     modsets_directory = MM_data_dict['modsets_directory']
     terminal_or_gui = MM_data_dict['terminal_or_gui']
@@ -80,7 +82,7 @@ def initialize_window():
     delete_modset_name_entry = tk.Entry()
     delete_modset_button = tk.Button(text="Delete Modset:", command=delete_modset_local)
 
-	switch_to_terminal_button = tk.Button(text="Press to switch to terminal")
+    switch_to_terminal_button = tk.Button(text="Press to switch to terminal", command=switch_to_terminal)
 
     save_modset_label.pack()
     save_modset_name_entry.pack()
@@ -93,6 +95,8 @@ def initialize_window():
     delete_modset_label.pack()
     delete_modset_name_entry.pack()
     delete_modset_button.pack()
+
+    switch_to_terminal_button.pack()
 
 
 def terminal_intro():
