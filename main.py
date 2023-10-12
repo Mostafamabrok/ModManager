@@ -65,7 +65,7 @@ def initialize_window():
     def delete_modset_local():
         delete_modset(delete_modset_name_entry.get(), modsets_directory)
 
-    create_modset_label = tk.Label(text="Enter the name of a modset you would like to save in box below and click button save it:")
+    save_modset_label = tk.Label(text="Enter the name of a modset you would like to save in box below and click button save it:")
     save_modset_name_entry = tk.Entry()
     save_modset_button = tk.Button(text="Save Modset:", command=save_modset_local)
 
@@ -77,7 +77,7 @@ def initialize_window():
     delete_modset_name_entry = tk.Entry()
     delete_modset_button = tk.Button(text="Delete Modset:", command=delete_modset_local)
 
-    create_modset_label.pack()
+    save_modset_label.pack()
     save_modset_name_entry.pack()
     save_modset_button.pack()
 
