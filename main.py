@@ -60,7 +60,7 @@ def initialize_window():
     def save_modset_local():
         save_modset(save_modset_name_entry.get(), modsets_directory, mc_mods_folder)
 
-    def use_modset_local(): 
+    def use_modset_local():
         use_modset(use_modset_name_entry.get(), modsets_directory, mc_mods_folder)
 
     def delete_modset_local():
@@ -69,6 +69,7 @@ def initialize_window():
     def switch_to_terminal():
         MM_data_dict['terminal_or_gui'] = 't'
         with open("MM_data_dict", "wb") as i: pickle.dump(MM_data_dict, i)
+		exit()
 
     save_modset_label = tk.Label(text="Enter the name of a modset you would like to save in box below and click button save it:")
     save_modset_name_entry = tk.Entry()
