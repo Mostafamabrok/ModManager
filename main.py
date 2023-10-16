@@ -51,7 +51,6 @@ def initialize_data():
 
 def initialize_window():
 
-
     global window
     window = tk.Tk()
     window.title("ModManager " + version)
@@ -113,14 +112,15 @@ def terminal_intro():
     desired_function = input (": ")
 
     #Checks what the user wants to do and then executes the respective function.
-    if desired_function == "1": save_modset(input("Save New Modset as:"), modsets_directory, mc_mods_folder)
-    if desired_function == "2": use_modset(input("What is the name of the modset you want to use? (Enter Name): "), modsets_directory, mc_mods_folder)
-    if desired_function == "3": view_modsets()
-    if desired_function == "4": check_modset(input("What is the name of the modset you would like to check? (enter the full name):"))
-    if desired_function == "5": delete_modset(input("What modset would you like to delete?"), modsets_directory)
-    if desired_function == "6": switch_interface()
-    if desired_function == "7": data_setup(False)
-    if desired_function == "8": exit()
+    if   desired_function == "1": save_modset(input("Save New Modset as:"), modsets_directory, mc_mods_folder)
+    elif desired_function == "2": use_modset(input("What is the name of the modset you want to use? (Enter Name): "), modsets_directory, mc_mods_folder)
+    elif desired_function == "3": view_modsets()
+    elif desired_function == "4": check_modset(input("What is the name of the modset you would like to check? (enter the full name):"))
+    elif desired_function == "5": delete_modset(input("What modset would you like to delete?"), modsets_directory)
+    elif desired_function == "6": switch_interface()
+    elif desired_function == "7": data_setup(False)
+    elif desired_function == "8": exit()
+    else: temporary = input("PlEASE ENTER A VALID INPUT, PRESS ENTER TO CONTINUE: ")
 
     terminal_intro()
 
