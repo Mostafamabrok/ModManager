@@ -14,11 +14,11 @@ def data_setup(data_ready):
 
     if not data_ready:
         print("Starting ModManger"+version+" Config")
-        modsets_directory = input("Where will your Modsets be kept? ENTER FULL PATH (enter 'n' to store it in the cwd, (reccomended)):")
-        mc_mods_folder = input("What is the path to your mods folder? (eg. C:/Users/(USERNAME)/AppData/Roaming/.minecraft/mods) (Make sure to enter the entire path!)")
-        terminal_or_gui = input("Would you like to use terminal interface or gui? (t/g):")
+        modsets_directory = input("Where will your Modsets be kept? (enter 'n' to store it in the cwd, (reccomended)):")
+        mc_mods_folder = input("What is the path to your mods folder? (Make sure to enter the entire path!): ")
+        terminal_or_gui = input("Would you like to use terminal interface or gui? (t/g): ")
 
-        if modsets_directory == "n": 
+        if modsets_directory == "n":
             modsets_directory = "MM_Data"
             try: 
                 os.mkdir(modsets_directory)
