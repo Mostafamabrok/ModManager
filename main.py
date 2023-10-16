@@ -51,6 +51,7 @@ def initialize_data():
 
 def initialize_window():
 
+
     global window
     window = tk.Tk()
     window.title("ModManager " + version)
@@ -66,10 +67,7 @@ def initialize_window():
     def delete_modset_local():
         delete_modset(delete_modset_name_entry.get(), modsets_directory)
 
-    def switch_to_terminal():
-        MM_data_dict['terminal_or_gui'] = 't'
-        with open("MM_data_dict", "wb") as i: pickle.dump(MM_data_dict, i)
-
+        
     save_modset_label = tk.Label(text="Enter the name of a modset you would like to save in box below and click button save it:")
     save_modset_name_entry = tk.Entry()
     save_modset_button = tk.Button(text="Save Modset:", command=save_modset_local)
@@ -82,7 +80,7 @@ def initialize_window():
     delete_modset_name_entry = tk.Entry()
     delete_modset_button = tk.Button(text="Delete Modset:", command=delete_modset_local)
 
-    switch_to_terminal_button = tk.Button(text="Press to switch to terminal", command=switch_to_terminal)
+    switch_to_terminal_button = tk.Button(text="Press to switch to terminal", command=switch_interface)
 
     save_modset_label.pack()
     save_modset_name_entry.pack()
@@ -108,8 +106,9 @@ def terminal_intro():
     print("3-View saved modsets")
     print("4-Check the contents of a modset")
     print("5-Delete a saved modset")
-    print("6-Configure application settings")
-    print("7-Exit ")
+    print("6-Switch to GUI (NEEDS RESTART)")
+    print("7-Configure application settings")
+    print("8-Exit ")
 
     desired_function = input (": ")
 
@@ -119,10 +118,24 @@ def terminal_intro():
     if desired_function == "3": view_modsets()
     if desired_function == "4": check_modset(input("What is the name of the modset you would like to check? (enter the full name):"))
     if desired_function == "5": delete_modset(input("What modset would you like to delete?"), modsets_directory)
-    if desired_function == "6": data_setup(False)
-    if desired_function == "7": exit()
+    if desired_function == "6": switch_interface()
+    if desired_function == "7": data_setup(False)
+    if desired_function == "8": exit()
 
     terminal_intro()
+
+
+def switch_interface():
+
+    if MM_data_dict['terminal_or_gui'] == 'g': 
+        MM_data_dict['terminal_or_gui'] = 't'
+        with open("MM_data_dict", "wb") as i: pickle.dump(MM_data_dict, i)
+        exit()
+
+    if MM_data_dict['terminal_or_gui'] == 't': 
+        MM_data_dict['terminal_or_gui'] = 'g'
+        with open("MM_data_dict", "wb") as i: pickle.dump(MM_data_dict, i)
+        exit() 
 
 
 def save_modset(modset_name, modsets_directory, mc_mods_folder):
