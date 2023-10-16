@@ -69,7 +69,8 @@ def initialize_window():
     def switch_to_terminal():
         MM_data_dict['terminal_or_gui'] = 't'
         with open("MM_data_dict", "wb") as i: pickle.dump(MM_data_dict, i)
-		exit()
+	
+    exit()
 
     save_modset_label = tk.Label(text="Enter the name of a modset you would like to save in box below and click button save it:")
     save_modset_name_entry = tk.Entry()
