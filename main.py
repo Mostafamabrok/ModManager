@@ -11,7 +11,7 @@ def status_log(message):
     if terminal_or_gui == 'g': print("GUI: " + message) #Should be changed to show it into the GUI, this is only temporary.
 
 def data_check():
-    if os.path.isfile("MM_data_dict") == False:
+    if os.path.isfile(os.path.join(os.getcwd(),"MM_data_dict")) == False:
         data_setup(False)
 
 
