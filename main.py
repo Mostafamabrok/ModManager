@@ -5,6 +5,11 @@ import tkinter as tk
 
 version="v0.0.1"
 
+
+def status_log(message):
+    if terminal_or_gui == 't': print(message)
+    if terminal_or_gui == 'g': print("GUI: " + message) #Should be changed to show it into the GUI, this is only temporary.
+
 def data_check():
     if os.path.isfile("MM_data_dict") == False:
         data_setup(False)
@@ -142,14 +147,14 @@ def save_modset(modset_name, modsets_directory, mc_mods_folder):
 
     try:  
         os.mkdir(os.path.join(modsets_directory, modset_name))
-        print("Modset folder created.")
+        status_log("Modset folder created.")
 
         for mod in os.listdir(mc_mods_folder):
             mod = os.path.join(mc_mods_folder, mod)
             shutil.copy(mod, os.path.join(modsets_directory, modset_name))
-            print("Copied mod from:"+str(mod))
+            status_log("Copied mod from:"+str(mod))
 
-        print("Modset Saved.")
+        status_log("Modset Saved.")
 
     except FileNotFoundError:
         print("\nERROR: Your saved Mod directory is invalid, please reconfigure it.\n")
@@ -172,16 +177,15 @@ def use_modset(modset_name, modsets_directory, mc_mods_folder):
         mod = os.path.join(modsets_directory, modset_name, mod)
         shutil.copy(mod, mc_mods_folder)
 
-    print("Modset Used.\n")
+    status_log("Modset Used.")
 
 
 def delete_modset(modset_name, modsets_directory):
     if modset_name == "":
-        print("You must use a proper modset directory.")
-
+        status_log("You must use an existing modset.")
     else:
         shutil.rmtree(os.path.join(modsets_directory, modset_name))
-        print("Modset Deleted\n")
+        status_log("Modset Deleted")
 
 
 def view_modsets():
