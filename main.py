@@ -8,7 +8,8 @@ version="v0.0.1"
 
 def status_log(message):
     if terminal_or_gui == 't': print(message)
-    if terminal_or_gui == 'g': print("GUI: " + message) #Should be changed to show it into the GUI, this is only temporary.
+    if terminal_or_gui == 'g': gui_infotext.insert(tk.END, str("\n"+message))
+
 
 def data_check():
     if os.path.isfile(os.path.join(os.getcwd(),"MM_data_dict")) == False:
@@ -57,9 +58,10 @@ def initialize_data():
 def initialize_window():
 
     global window
+    global gui_infotext
+
     window = tk.Tk()
     window.title("ModManager " + version)
-    window.resizable(False, False)
 
     #Functions are re-defined because command= param in tk.button doesn't work properly.
     def save_modset_local():
@@ -86,6 +88,8 @@ def initialize_window():
 
     switch_to_terminal_button = tk.Button(text="Press to switch to terminal", command=switch_interface)
 
+    gui_infotext = tk.Text(height=20, width=100)
+
     save_modset_label.pack()
     save_modset_name_entry.pack()
     save_modset_button.pack()
@@ -99,6 +103,8 @@ def initialize_window():
     delete_modset_button.pack()
 
     switch_to_terminal_button.pack()
+
+    gui_infotext.pack()
 
 
 def terminal_intro():
