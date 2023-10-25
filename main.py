@@ -158,7 +158,7 @@ def save_modset(modset_name, modsets_directory, mc_mods_folder):
         for mod in os.listdir(mc_mods_folder):
             mod = os.path.join(mc_mods_folder, mod)
             shutil.copy(mod, os.path.join(modsets_directory, modset_name))
-            status_log("Copied mod from:"+str(mod))
+            status_log("Copied mod:"+str(mod))
 
         status_log("Modset Saved.")
 
