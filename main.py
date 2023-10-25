@@ -160,6 +160,9 @@ def save_modset(modset_name, modsets_directory, mc_mods_folder):
         print("\nERROR: Your saved Mod directory is invalid, please reconfigure it.\n")
     
 
+    except FileExistsError:
+        status_log("\nERROR: A modset with that name already exists, please try again.")
+
 
 def use_modset(modset_name, modsets_directory, mc_mods_folder):
 
