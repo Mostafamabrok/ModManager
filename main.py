@@ -3,7 +3,7 @@ import shutil
 import pickle
 import tkinter as tk
 
-version="v0.0.1"
+version="v1.0.0"
 
 
 def status_log(message):
