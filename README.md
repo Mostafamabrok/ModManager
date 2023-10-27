@@ -8,6 +8,6 @@ This application helps users sort their Minecraft Mods (May expand to other game
 
 ### How to use (Subject to Change)
 
-* Download main.py from the main branch.
-* Move main.py to a location that is not likely to change.
-* Run main.py with python
+* Download ModManager.py from the latest release (on the left of the page).
+* Move ModManager.py to a location that is not likely to change.
+* Run ModManager.py with python
