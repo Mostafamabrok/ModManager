@@ -12,7 +12,7 @@ This application helps users sort their Minecraft Mods (May expand to other game
 * Move ModManager.py to a location that is not likely to change.
 * Run ModManager.py with python
 
-### Potential features
+### Upcoming (potential) features
 
 * Downloading mods from Modrinth.
 * Saving Resource packs, Datapacks, and mods together to allow for better, more speciallized management.
