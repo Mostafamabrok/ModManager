@@ -4,6 +4,10 @@ import pickle
 import tkinter as tk
 
 
+def log(message):
+    if terminal_or_gui == 'g': print(message)
+    if terminal_or_gui == 't': print(message)
+
 def setup():
 
     minecraft_directory = input("What is the path to your minecraft_directory? (C:/path/to/your/.minecraft):")
