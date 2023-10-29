@@ -27,3 +27,20 @@ def setup():
     }
 
     with open("MM_Data_Dict", "wb") as i: pickle.dump(MM_Data_Dict, i)
+    print("Data Saved Sucsessfully!")
+
+
+def load_data():
+    global minecraft_directory
+    global terminal_or_gui
+
+    with open("MM_Data_Dict", "rb") as i: MM_Data_Dict = pickle.load(i)
+    minecraft_directory = MM_Data_Dict['minecraft_directory']
+    terminal_or_gui = MM_Data_Dict['terminal_or_gui']
+
+def terminal_interface():
+    print("\nModManager v1.1.0")
+    print("Type the number of the respective action and press enter:")
+    print("1-Create a new modset")
+
+    action = input(": ")
