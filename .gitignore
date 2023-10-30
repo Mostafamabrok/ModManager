@@ -1,5 +1,2 @@
-MM_Data
-MM_data_dict
-build
-dist
-main.spec
+modsets/
+MM_Data_Dict
