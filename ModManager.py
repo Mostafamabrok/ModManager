@@ -29,10 +29,8 @@ def setup():
     with open("MM_Data_Dict", "wb") as i: pickle.dump(MM_Data_Dict, i)
     print("Data Saved Sucsessfully!")
 
-    try:
-        os.mkdir("modsets")
-    except FileExistsError:
-        pass
+    try: os.mkdir("modsets")
+    except FileExistsError: pass
 
 def load_data():
     global minecraft_directory
@@ -55,8 +53,11 @@ def terminal_interface():
 
     action = input(": ")
     
-    if action == "1":save_modset(input("New Modset Name:"), minecraft_directory)
-    if action == "2":use_modset(input("Which modset do you want to use:"), minecraft_directory)
+    if   action == "1":save_modset(input("New Modset Name:"), minecraft_directory)
+    elif action == "2":use_modset(input("Which modset do you want to use:"), minecraft_directory)
+    elif action == "8":exit()
+
+    terminal_interface()
 
 def save_modset(modset_name, minecraft_directory):
     true_cwd = os.getcwd()
