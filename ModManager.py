@@ -110,9 +110,6 @@ def use_modset(modset_name, minecraft_directory):
     os.chdir(true_cwd)
 
 
-if not os.path.exists("MM_Data_Dict"): 
-    setup()
-
-
+if not os.path.exists("MM_Data_Dict"): setup()
 load_data()
 terminal_interface()
