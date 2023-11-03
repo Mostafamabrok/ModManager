@@ -55,6 +55,7 @@ def terminal_interface():
     
     if   action == "1":save_modset(input("New Modset Name:"), minecraft_directory)
     elif action == "2":use_modset(input("Which modset do you want to use:"), minecraft_directory)
+    elif action == "3":view_modsets()
     elif action == "4":delete_modset(input("Which modset would you like to delete: "))
     elif action == "8":exit()
 
@@ -114,7 +115,10 @@ def delete_modset(modset_name):
     shutil.rmtree(os.path.join("modsets", modset_name))
 
 def view_modsets():
-    pass
+    log("\nCurrent Saved Modsets:")
+    for modset in os.listdir("modsets"):
+        log("-"+modset)
+
 
 if not os.path.exists("MM_Data_Dict"): setup()
 load_data()
